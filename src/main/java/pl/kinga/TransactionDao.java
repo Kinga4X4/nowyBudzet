@@ -73,7 +73,7 @@ public class TransactionDao {
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE transaction SET type = ?, description = ?, amount = ?, date = ? where id = ?");
-            preparedStatement.getResultSetType();
+            preparedStatement.setString(1, transaction.getType().toString());
             preparedStatement.setString(2, transaction.getDescription());
             preparedStatement.setDouble(3, transaction.getAmount());
             preparedStatement.setDate(4, Date.valueOf(transaction.getLocalDate()));

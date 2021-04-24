@@ -10,7 +10,8 @@ public class TransactionAdd {
         System.out.println("Podaj typ transakcji. Dostępne typy:");
         Type[] type = Type.values();
         for (Type type1 : type) {
-            type1.name();
+            String name = type1.name();
+            System.out.println(name);
         }
         String type1 = scanner.nextLine();
         System.out.println("Podaj opis transakcji.");
