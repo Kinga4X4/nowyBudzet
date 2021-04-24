@@ -3,7 +3,10 @@ package pl.kinga;
 import java.util.Scanner;
 
 public class TransactionApp {
+    private static final TransactionDao DAO = new TransactionDao();
+
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Wybierz jedną z opcji. Dostępne opcje:");
@@ -18,27 +21,27 @@ public class TransactionApp {
             switch (option) {
 
                 case "1":
-                    TransactionAdd(new String[0]);
+                    TransactionAdd.addTransaction();
                     break;
                 case "2":
-                    TransactionUpdate(new String[0]);
+                    TransactionUpdate.update();
                     break;
                 case "3":
-                    TransactionDelete(new String[0]);
+                    TransactionDelete.deleteById();
                     break;
                 case "4":
-                    TransactionAllIncome(new String[0]);
+                    TransactionAllIncome.allIncome();
                     break;
                 case "5":
-                    TransactionAllExpenses(new String[0]);
+                    TransactionAllExpenses.allExpenses();
                     break;
                 case "0":
-                    close();
+                    DAO.close();
                     break;
                 default:
                     System.out.println("Nieznana opcja!");
             }
         }
     }
-
 }
+
