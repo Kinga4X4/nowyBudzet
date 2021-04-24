@@ -1,9 +1,11 @@
 package pl.kinga;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class TransactionUpdate {
-    public static void main(String[] args) {
+    public static void update() {
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Podaj id transakcji, którą chcesz zaktualizować");
@@ -23,9 +25,10 @@ public class TransactionUpdate {
         System.out.println("Podaj datę transakcji");
         String localDate = scanner.nextLine();
 
-        Transaction transaction = new Transaction(type, description, amount, localDate);
+        Transaction transaction = new Transaction(Type.valueOf(type1), description, amount, LocalDate.parse(localDate));
         TransactionDao transactionDao = new TransactionDao();
         transactionDao.update(transaction);
     }
 }
+
 

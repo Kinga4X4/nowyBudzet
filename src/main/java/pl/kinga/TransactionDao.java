@@ -6,7 +6,7 @@ public class TransactionDao {
 
     private Connection connection;
 
-    void run() {
+    public TransactionDao() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -88,7 +88,7 @@ public class TransactionDao {
     public void addTransaction(pl.kinga.Transaction transaction) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO transaction (type, description, amount, date) VALUES (?, ?, ?, ?)");
-            preparedStatement.setString(1, transaction.getType());
+            preparedStatement.setString(1, transaction.getType().toString());
             preparedStatement.setString(2, transaction.getDescription());
             preparedStatement.setDouble(3, transaction.getAmount());
             preparedStatement.setDate(4, Date.valueOf(transaction.getLocalDate()));

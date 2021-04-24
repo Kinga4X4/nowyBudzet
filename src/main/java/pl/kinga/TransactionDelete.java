@@ -9,7 +9,6 @@ public class TransactionDelete {
         Integer id = scanner.nextInt();
         TransactionDao transactionDao = new TransactionDao();
 
-
         transactionDao.deleteById(id);
         System.out.println("Usunięto!");
     }

@@ -69,7 +69,6 @@ public class Transaction {
                 ", typ " + type + " " +
                 ", opis: " + description + " " +
                 ", kwota: " + amount +
-                ", data:" + localDate +
-                '}';
+                ", data:" + localDate;
     }
 }
