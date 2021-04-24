@@ -8,9 +8,6 @@ public class TransactionUpdate {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Podaj id transakcji, którą chcesz zaktualizować");
-        int id = scanner.nextInt();
-        scanner.nextLine();
         System.out.println("Podaj typ transakcji. Dostępne typy:");
         Type[] type = Type.values();
         for (Type type1 : type) {
@@ -25,6 +22,10 @@ public class TransactionUpdate {
         scanner.nextLine();
         System.out.println("Podaj datę transakcji");
         String localDate = scanner.nextLine();
+
+        System.out.println("Podaj id transakcji, którą chcesz zaktualizować");
+        int id = scanner.nextInt();
+        scanner.nextLine();
 
         Transaction transaction = new Transaction(id, Type.valueOf(type1), description, amount, LocalDate.parse(localDate));
         TransactionDao transactionDao = new TransactionDao();

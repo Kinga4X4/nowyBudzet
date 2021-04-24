@@ -76,6 +76,7 @@ public class TransactionDao {
             preparedStatement.setString(2, transaction.getDescription());
             preparedStatement.setDouble(3, transaction.getAmount());
             preparedStatement.setDate(4, Date.valueOf(transaction.getLocalDate()));
+            preparedStatement.setInt(5, transaction.getId());
             int rowsChanged = preparedStatement.executeUpdate();
             System.out.println("zaktualizowane rekordy" + " " + rowsChanged);
 
