@@ -1,3 +1,5 @@
+package pl.kinga;
+
 import java.util.Scanner;
 
 public class TransactionDelete {

@@ -1,3 +1,5 @@
+package pl.kinga;
+
 public enum Type {
     WYDATEK("wydatek"),
     PRZYCHOD("przychód");

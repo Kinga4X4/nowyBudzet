@@ -1,3 +1,5 @@
+package pl.kinga;
+
 import java.sql.*;
 
 public class TransactionDao {
