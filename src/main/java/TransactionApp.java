@@ -16,19 +16,19 @@ public class TransactionApp {
             switch (option) {
 
                 case "1":
-                    pl.kinga.TransactionAdd.main(new String[0]);
+                    TransactionAdd.main(new String[0]);
                     break;
                 case "2":
                     TransactionUpdate.main(new String[0]);
                     break;
                 case "3":
-                    pl.kinga.TransactionDelete.main(new String[0]);
+                    TransactionDelete.main(new String[0]);
                     break;
                 case "4":
-                    pl.kinga.TransactionAllIncome.main(new String[0]);
+                    TransactionAllIncome.main(new String[0]);
                     break;
                 case "5":
-                    pl.kinga.TransactionAllExpenses.main(new String[0]);
+                    TransactionAllExpenses.main(new String[0]);
                     break;
                 case "0":
                     close();

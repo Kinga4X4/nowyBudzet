@@ -18,7 +18,7 @@ public class TransactionAdd {
         System.out.println("Podaj datę transakcji.");
         String date = scanner.nextLine();
 
-        pl.kinga.Transaction transaction = new pl.kinga.Transaction(type, description, amount, date);
+        Transaction transaction = Transaction(type, description, amount, date);
         TransactionDao transactionDao = new TransactionDao();
         transactionDao.addTransaction(transaction);
     }
