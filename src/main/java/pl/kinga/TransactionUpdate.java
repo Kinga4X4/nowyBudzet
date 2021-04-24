@@ -21,9 +21,9 @@ public class TransactionUpdate {
         double amount = scanner.nextDouble();
         scanner.nextLine();
         System.out.println("Podaj datę transakcji");
-        String date = scanner.nextLine();
+        String localDate = scanner.nextLine();
 
-        Transaction transaction = new Transaction(type, description, amount, date);
+        Transaction transaction = new Transaction(type, description, amount, localDate);
         TransactionDao transactionDao = new TransactionDao();
         transactionDao.update(transaction);
     }

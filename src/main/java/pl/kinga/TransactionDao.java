@@ -76,7 +76,7 @@ public class TransactionDao {
             preparedStatement.getResultSetType();
             preparedStatement.setString(2, transaction.getDescription());
             preparedStatement.setDouble(3, transaction.getAmount());
-            preparedStatement.setDate(4, transaction.getDate());
+            preparedStatement.setDate(4, Date.valueOf(transaction.getLocalDate()));
             int rowsChanged = preparedStatement.executeUpdate();
             System.out.println("zaktualizowane rekordy" + " " + rowsChanged);
 
@@ -91,7 +91,7 @@ public class TransactionDao {
             preparedStatement.setString(1, transaction.getType());
             preparedStatement.setString(2, transaction.getDescription());
             preparedStatement.setDouble(3, transaction.getAmount());
-            preparedStatement.setDate(4, transaction.getDate());
+            preparedStatement.setDate(4, Date.valueOf(transaction.getLocalDate()));
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -99,11 +99,11 @@ public class TransactionDao {
         }
     }
 
-    public void deleteById(String id) {
+    public void deleteById(Integer id) {
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM transaction WHERE id = ?");
-            preparedStatement.setString(1, id);
+            preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             System.out.println("Niepowodzenie podczas zapisu do bazy: " + throwables.getMessage());

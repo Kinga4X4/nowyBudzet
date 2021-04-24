@@ -1,24 +1,25 @@
 package pl.kinga;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Transaction {
     private Integer id;
     private Type type;
     private String description;
     private double amount;
-    private Date date;
+    private LocalDate localDate;
 
-    public Transaction(Integer id, Type type, String description, double amount, Date date) {
+    public Transaction(Integer id, Type type, String description, double amount, LocalDate localDate) {
         this.id = id;
         this.type = type;
         this.description = description;
         this.amount = amount;
-        this.date = date;
+        this.localDate = localDate;
     }
 
-    public Transaction(Type type, String description, double amount, Date date) {
-        this(null, type, description, amount, date);
+    public Transaction(Type type, String description, double amount, LocalDate localDate) {
+        this(null, type, description, amount, localDate);
     }
 
     public Integer getId() {
@@ -53,12 +54,12 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Date getDate() {
-        return date;
+    public LocalDate getLocalDate() {
+        return localDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
     }
 
     @Override
@@ -68,7 +69,7 @@ public class Transaction {
                 ", typ " + type + " " +
                 ", opis: " + description + " " +
                 ", kwota: " + amount +
-                ", data:" + date +
+                ", data:" + localDate +
                 '}';
     }
 }

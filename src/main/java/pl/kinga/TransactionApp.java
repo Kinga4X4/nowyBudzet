@@ -18,19 +18,19 @@ public class TransactionApp {
             switch (option) {
 
                 case "1":
-                    TransactionAdd.main(new String[0]);
+                    TransactionAdd(new String[0]);
                     break;
                 case "2":
-                    TransactionUpdate.main(new String[0]);
+                    TransactionUpdate(new String[0]);
                     break;
                 case "3":
-                    TransactionDelete.main(new String[0]);
+                    TransactionDelete(new String[0]);
                     break;
                 case "4":
-                    TransactionAllIncome.main(new String[0]);
+                    TransactionAllIncome(new String[0]);
                     break;
                 case "5":
-                    TransactionAllExpenses.main(new String[0]);
+                    TransactionAllExpenses(new String[0]);
                     break;
                 case "0":
                     close();
