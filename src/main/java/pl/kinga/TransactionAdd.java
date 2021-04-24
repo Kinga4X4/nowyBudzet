@@ -25,5 +25,6 @@ public class TransactionAdd {
         Transaction transaction = new Transaction(Type.valueOf(type1), description, amount, LocalDate.parse(localDate));
         TransactionDao transactionDao = new TransactionDao();
         transactionDao.addTransaction(transaction);
+        System.out.println("Pomyślnie dodano transakcje!");
     }
 }

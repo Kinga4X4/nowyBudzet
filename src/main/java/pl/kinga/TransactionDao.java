@@ -20,7 +20,6 @@ public class TransactionDao {
             connection = DriverManager.getConnection(url, "root", "admin");
         } catch (SQLException throwables) {
             System.out.println("Błąd podczas nawiazania połączenia" + throwables.getMessage());
-            return;
         }
     }
 
@@ -44,7 +43,6 @@ public class TransactionDao {
                 String description = resultSet.getString("description");
                 double amount = resultSet.getInt("amount");
                 System.out.println(type + ": " + description + " " + amount + " EUR");
-
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -62,17 +60,18 @@ public class TransactionDao {
                 String type = resultSet.getString("type");
                 String description = resultSet.getString("description");
                 double amount = resultSet.getInt("amount");
-                System.out.println(type + ": " + description + " " + amount + " EUR");
+                System.out.println(type + ": " + description + ", " + amount + "EUR");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    public void update(pl.kinga.Transaction transaction) {
+    public void update(Transaction transaction) {
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE transaction SET type = ?, description = ?, amount = ?, date = ? where id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE transaction SET type = ?," +
+                    " description = ?, amount = ?, date = ? where id = ?");
             preparedStatement.setString(1, transaction.getType().toString());
             preparedStatement.setString(2, transaction.getDescription());
             preparedStatement.setDouble(3, transaction.getAmount());
@@ -81,7 +80,7 @@ public class TransactionDao {
             System.out.println("zaktualizowane rekordy" + " " + rowsChanged);
 
         } catch (SQLException throwables) {
-            System.out.println("Niepowodzenie podczas zapisu do bazy danych" + throwables.getMessage());
+            System.out.println("Niepowodzenie podczas zapisu do bazy danych" + " " + throwables.getMessage());
         }
     }
 
